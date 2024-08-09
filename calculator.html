@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calculator</title>
+    <title>iPhone Style Calculator</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -10,23 +10,26 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f7f7f7;
+            background-color: #000000;
         }
         .calculator {
             width: 320px;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background-color: #333333;
         }
         .calculator input[type="text"] {
             width: 100%;
-            height: 50px;
+            height: 60px;
             margin-bottom: 20px;
-            padding: 15px;
-            font-size: 24px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
+            padding: 10px;
+            font-size: 32px;
+            border: none;
+            border-radius: 15px;
+            text-align: right;
+            background-color: #000000;
+            color: #ffffff;
             box-sizing: border-box;
         }
         .buttons {
@@ -39,33 +42,38 @@
             height: 60px;
             font-size: 24px;
             border: none;
-            border-radius: 10px;
-            background-color: #4CAF50;
-            color: white;
+            border-radius: 15px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .calculator button:hover {
-            background-color: #45a049;
+        .number {
+            background-color: #505050;
+            color: #ffffff;
         }
-        .calculator button:nth-child(4n) {
-            background-color: #f44336;
+        .number:hover {
+            background-color: #686868;
         }
-        .calculator button:nth-child(4n):hover {
-            background-color: #e53935;
+        .operator {
+            background-color: #ff9500;
+            color: #ffffff;
         }
-        .calculator button:nth-child(16) {
-            background-color: #ff9800;
+        .operator:hover {
+            background-color: #e08b00;
         }
-        .calculator button:nth-child(16):hover {
-            background-color: #fb8c00;
-        }
-        .calculator button:nth-child(17) {
+        .equal {
+            background-color: #ff9500;
+            color: #ffffff;
             grid-column: span 2;
-            background-color: #2196F3;
         }
-        .calculator button:nth-child(17):hover {
-            background-color: #1e88e5;
+        .equal:hover {
+            background-color: #e08b00;
+        }
+        .clear {
+            background-color: #d4d4d2;
+            color: #000000;
+        }
+        .clear:hover {
+            background-color: #e5e5e3;
         }
     </style>
 </head>
@@ -73,23 +81,24 @@
     <div class="calculator">
         <input type="text" id="display" readonly>
         <div class="buttons">
-            <button onclick="appendNumber('7')">7</button>
-            <button onclick="appendNumber('8')">8</button>
-            <button onclick="appendNumber('9')">9</button>
-            <button onclick="appendNumber('+')">+</button>
-            <button onclick="appendNumber('4')">4</button>
-            <button onclick="appendNumber('5')">5</button>
-            <button onclick="appendNumber('6')">6</button>
-            <button onclick="appendNumber('-')">-</button>
-            <button onclick="appendNumber('1')">1</button>
-            <button onclick="appendNumber('2')">2</button>
-            <button onclick="appendNumber('3')">3</button>
-            <button onclick="appendNumber('*')">*</button>
-            <button onclick="appendNumber('0')">0</button>
-            <button onclick="appendNumber('.')">.</button>
-            <button onclick="appendNumber('/')">/</button>
-            <button onclick="calculate()">=</button>
-            <button onclick="clearDisplay()">C</button>
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="operator" onclick="appendNumber('/')">/</button>
+            <button class="operator" onclick="appendNumber('*')">*</button>
+            <button class="operator" onclick="appendNumber('-')">-</button>
+            <button class="number" onclick="appendNumber('7')">7</button>
+            <button class="number" onclick="appendNumber('8')">8</button>
+            <button class="number" onclick="appendNumber('9')">9</button>
+            <button class="operator" onclick="appendNumber('+')">+</button>
+            <button class="number" onclick="appendNumber('4')">4</button>
+            <button class="number" onclick="appendNumber('5')">5</button>
+            <button class="number" onclick="appendNumber('6')">6</button>
+            <button class="operator" onclick="appendNumber('=')">=</button>
+            <button class="number" onclick="appendNumber('1')">1</button>
+            <button class="number" onclick="appendNumber('2')">2</button>
+            <button class="number" onclick="appendNumber('3')">3</button>
+            <button class="equal" onclick="calculate()">=</button>
+            <button class="number" onclick="appendNumber('0')">0</button>
+            <button class="number" onclick="appendNumber('.')">.</button>
         </div>
     </div>
     <script>
@@ -112,3 +121,4 @@
     </script>
 </body>
 </html>
+             
